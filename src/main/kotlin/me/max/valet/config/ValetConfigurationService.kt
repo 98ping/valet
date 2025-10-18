@@ -41,7 +41,7 @@ object ValetConfigurationService {
 
             if (reader != null)
             {
-                cached = Valet.Companion.instance.gson.fromJson(
+                cached = Valet.instance.gson.fromJson(
                     reader,
                     type
                 )
@@ -49,6 +49,12 @@ object ValetConfigurationService {
                 colorConsole {
                     printLine {
                         span(Colors.Green, "Cached valet configuration file")
+                    }
+                }
+
+                colorConsole {
+                    printLine {
+                        span(Colors.Blue, "Found your authorization token (${cached.token.substring(0, 12)})")
                     }
                 }
             }
@@ -65,6 +71,12 @@ object ValetConfigurationService {
             colorConsole {
                 printLine {
                     span(Colors.Green, "Created valet configuration file")
+                }
+            }
+
+            colorConsole {
+                printLine {
+                    span(Colors.Red, "Make sure you change your GitHub API Token before proceeding!")
                 }
             }
         }
