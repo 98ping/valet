@@ -91,16 +91,30 @@ class UpdatableArtifact(
         }
 
         changedFiles.forEach { (path, content) ->
-            if (content != null)
-            {
-                println("$path: ${content.size} bytes")
+            val whereToWrite = File(location, path)
 
-                val whereToWrite = File(location, path)
+            if (content != null) {
+                colorConsole {
+                    printLine {
+                        span(Colors.Cyan, "$path: ${content.size} bytes")
+                    }
+                }
 
-            } else
-            {
+                whereToWrite.parentFile?.mkdirs()
+
+                colorConsole {
+                    printLine {
+                        span(Colors.Yellow, "Writing content of $path to file now...")
+                    }
+                }
+
+                whereToWrite.writeBytes(content)
+            } else {
                 println("$path: marked for deletion")
-                // Delete from disk here
+
+                if (whereToWrite.exists()) {
+                    whereToWrite.delete()
+                }
             }
         }
     }
