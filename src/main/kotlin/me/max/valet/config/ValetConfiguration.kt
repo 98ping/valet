@@ -9,4 +9,6 @@ package me.max.valet.config
  */
 data class ValetConfiguration(
     val token: String,
+    val mongoDbEnabled: Boolean = false,
+    val mongoDbConnectionString: String = "mongodb://localhost:27017",
 )

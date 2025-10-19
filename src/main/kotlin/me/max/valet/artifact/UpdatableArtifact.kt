@@ -3,8 +3,9 @@ package me.max.valet.artifact
 import color_console_log.ColorConsoleContext.Companion.colorConsole
 import color_console_log.Colors
 import me.max.valet.interaction.GithubInteractionHandler
+import me.max.valet.storage.ArtifactStorageService
+import me.max.valet.storage.StorableArtifact
 import java.io.File
-import java.util.concurrent.ScheduledExecutorService
 
 /**
  * Class created on 10/17/2025
@@ -30,6 +31,18 @@ class UpdatableArtifact(
                 span(Colors.Green, "Scanning artifact: $id (${owner}/${repo})...")
             }
         }
+
+        val storableArtifact = ArtifactStorageService.getMechanism().getById(id)
+            ?: StorableArtifact.from(this, latestCommitHash.sha)
+
+        colorConsole {
+            printLine {
+                span(Colors.White, "Retrieved storable artifact for: $id")
+            }
+        }
+
+        storableArtifact.lastCommitHash = latestCommitHash.sha
+        ArtifactStorageService.getMechanism().save(storableArtifact)
 
         val changes = GithubInteractionHandler.getCommitChanges(owner, repo, latestCommitHash.sha)
 
@@ -78,7 +91,7 @@ class UpdatableArtifact(
         val changedFiles = GithubInteractionHandler.fetchChangedFiles(owner, repo, branch, changes)
         val historicStashDirectory = File(location, "stash")
 
-        // make a stash to ensure that no problems occur
+        // make a stash to migrate files that are pending changes
         if (!historicStashDirectory.exists())
         {
             historicStashDirectory.mkdirs()

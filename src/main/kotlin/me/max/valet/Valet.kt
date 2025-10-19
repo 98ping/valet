@@ -6,6 +6,7 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import me.max.valet.artifact.UpdatableArtifactLoader
 import me.max.valet.config.ValetConfigurationService
+import me.max.valet.storage.ArtifactStorageService
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 
@@ -39,6 +40,7 @@ class Valet {
 
         ValetConfigurationService.loadConfiguration()
         UpdatableArtifactLoader.loadEntries()
+        ArtifactStorageService.loadMechanisms()
     }
 
     private fun keepAlive()
@@ -56,7 +58,7 @@ class Valet {
             } catch (e: Exception) {
                 e.printStackTrace()
             }
-        }, 0, 1, TimeUnit.MINUTES)
+        }, 0, 3, TimeUnit.MINUTES)
 
         colorConsole {
             printLine {
