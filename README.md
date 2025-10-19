@@ -110,19 +110,26 @@ Valet uses a simple JSON configuration file to store artifacts:
   "location": "/home/Template",
   "owner": "98ping",
   "repo": "Valet",
-  "branch": "master"
+  "branch": "master",
+  "filters": {
+    "include": ["src/**/*.kt", "*.md"],
+    "exclude": ["*.tmp", "build/"]
+  },
+  "restartCommand": "./start.sh"
 }
 ```
 
 ### Configuration Options
 
-| Option            | Type | Description                              |
-|-------------------|------|------------------------------------------|
-| `id`               | String | The name of your artifact                |
-| `owner`           | String | Repository owner/organization            |
-| `repo`            | String | Repository name                          |
-| `branch`          | String | Branch to track (default: `main`)        |
-| `targetDirectory` | String | Local directory to sync files to         |
+| Option            | Type                | Description                                       |
+|-------------------|---------------------|---------------------------------------------------|
+| `id`              | String              | The name of your artifact                         |
+| `owner`           | String              | Repository owner/organization                     |
+| `repo`            | String              | Repository name                                   |
+| `branch`          | String              | Branch to track (default: `main`)                 |
+| `targetDirectory` | String              | Local directory to sync files to                  |
+| `filters`         | Map<String, String> | Defines what files to include and ignore          |
+| `restartCommand`  | String              | What should be ran after the deployment concludes |
 
 ---
 

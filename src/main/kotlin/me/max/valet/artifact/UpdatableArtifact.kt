@@ -19,7 +19,9 @@ class UpdatableArtifact(
     val location: String,
     val owner: String,
     val repo: String,
-    val branch: String
+    val branch: String,
+    val filters: MutableMap<String, List<String>> = mutableMapOf(),
+    val restartCommand: String? = null
 )
 {
     fun scan()
@@ -150,6 +152,39 @@ class UpdatableArtifact(
 
                 if (whereToWrite.exists()) {
                     whereToWrite.delete()
+                }
+            }
+        }
+
+        if (restartCommand != null) {
+            colorConsole {
+                printLine {
+                    span(Colors.Green, "Deployment complete. Executing restart command...")
+                }
+            }
+
+            try {
+                val process = ProcessBuilder(*restartCommand.split(" ").toTypedArray())
+                    .redirectOutput(ProcessBuilder.Redirect.INHERIT)
+                    .redirectError(ProcessBuilder.Redirect.INHERIT)
+                    .start()
+
+                val exitCode = process.waitFor()
+
+                colorConsole {
+                    printLine {
+                        if (exitCode == 0) {
+                            span(Colors.Green, "Restart command executed successfully!")
+                        } else {
+                            span(Colors.Red, "Restart command failed with exit code: $exitCode")
+                        }
+                    }
+                }
+            } catch (e: Exception) {
+                colorConsole {
+                    printLine {
+                        span(Colors.Red, "Failed to execute restart command: ${e.message}")
+                    }
                 }
             }
         }

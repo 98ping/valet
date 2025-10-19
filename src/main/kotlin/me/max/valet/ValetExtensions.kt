@@ -14,4 +14,15 @@ import okhttp3.OkHttpClient
 val client = OkHttpClient()
 val baseUrl = "https://api.github.com"
 
-val artifactTemplate = UpdatableArtifact("template", "/home/Template", "max", "valet", "master")
+val artifactTemplate = UpdatableArtifact(
+    "template",
+    "/home/Template",
+    "max",
+    "valet",
+    "master",
+    mutableMapOf(
+        "include" to listOf("*"),
+        "exclude" to listOf(".idea/")
+    ),
+    "./start.sh"
+)
