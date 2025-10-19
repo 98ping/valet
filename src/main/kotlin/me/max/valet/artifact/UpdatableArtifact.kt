@@ -116,6 +116,19 @@ class UpdatableArtifact(
         changedFiles.forEach { (path, content) ->
             val whereToWrite = File(location, path)
 
+            if (whereToWrite.exists()) {
+                val stashFile = File(historicStashDirectory, path)
+                stashFile.parentFile?.mkdirs()
+
+                whereToWrite.copyTo(stashFile, overwrite = true)
+
+                colorConsole {
+                    printLine {
+                        span(Colors.White, "Stashed existing file for recovery purposes: $path")
+                    }
+                }
+            }
+
             if (content != null) {
                 colorConsole {
                     printLine {

@@ -2,9 +2,7 @@
 
 <div align="center">
 
-![Valet Banner](https://via.placeholder.com/1200x300/000000/00D9FF?text=Valet+%7C+Lightning+Fast+GitHub+Deployments)
-
-**A Vercel-like deployment system that automatically syncs your GitHub repositories**
+**A Vercel-like deployment system that automatically syncs your GitHub repositories to your own machine**
 
 [![Kotlin](https://img.shields.io/badge/Kotlin-2.2.0-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white)](https://kotlinlang.org/)
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
@@ -37,7 +35,7 @@ Efficiently syncs repositories using GitHub's API with smart caching.
 <td>
 
 ### 🔄 **Auto-Sync**
-Continuously monitors for changes and deploys automatically.
+Monitors for changes and deploys automatically in 3 minute intervals.
 
 </td>
 <td>
@@ -51,7 +49,7 @@ Supports GitHub token authentication for private repositories.
 <td>
 
 ### 📦 **Easy Setup**
-Simple JSON configuration with sensible defaults.
+Simple JSON configuration with template artifacts.
 
 </td>
 <td>
