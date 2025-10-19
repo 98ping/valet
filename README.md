@@ -1,4 +1,4 @@
-# 🚀 Valet
+# 🚄 Valet
 
 <div align="center">
 
@@ -56,7 +56,7 @@ Simple JSON configuration with sensible defaults.
 </td>
 <td>
 
-### 🎨 **Beautiful CLI**
+### 🌈 **Pretty CLI**
 Colorful console output for better visibility.
 
 </td>
