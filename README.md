@@ -163,28 +163,6 @@ graph LR
 
 ---
 
-## 🛠️ Advanced Features
-
-### Custom File Filters
-
-```json
-{
-  "filters": {
-    "include": ["src/**/*.kt", "*.md"],
-    "exclude": ["*.tmp", "build/"]
-  }
-}
-```
-
-### Rollback Support
-
-```bash
-# Future feature
-valet rollback --commit abc123
-```
-
----
-
 ## 🤝 Contributing
 
 We welcome contributions! Here's how you can help:
@@ -201,10 +179,10 @@ We welcome contributions! Here's how you can help:
 
 <div align="center">
 
-![GitHub stars](https://img.shields.io/github/stars/yourusername/valet?style=social)
-![GitHub forks](https://img.shields.io/github/forks/yourusername/valet?style=social)
-![GitHub issues](https://img.shields.io/github/issues/yourusername/valet)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/yourusername/valet)
+![GitHub stars](https://img.shields.io/github/stars/98ping/Valet?style=social)
+![GitHub forks](https://img.shields.io/github/forks/98ping/Valet?style=social)
+![GitHub issues](https://img.shields.io/github/issues/98ping/Valet)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/98ping/Valet)
 
 </div>
 
@@ -226,8 +204,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 <div align="center">
 
-**Made with ❤️ by [Matrix Studios](https://matrixstudios.ltd)**
+**Made with ❤️ by Matrix Studios**
 
-[Report Bug](https://github.com/yourusername/valet/issues) • [Request Feature](https://github.com/yourusername/valet/issues)
+[Report Bug](https://github.com/98ping/Valet/issues) • [Request Feature](https://github.com/98ping/Valet/issues)
 
 </div>
