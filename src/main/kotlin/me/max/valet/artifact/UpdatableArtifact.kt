@@ -41,6 +41,16 @@ class UpdatableArtifact(
             }
         }
 
+        if (latestCommitHash.sha == storableArtifact.lastCommitHash)
+        {
+            colorConsole {
+                printLine {
+                    span(Colors.Red, "Remote is already up-to-date. No action necessary.")
+                }
+            }
+            return
+        }
+
         storableArtifact.lastCommitHash = latestCommitHash.sha
         ArtifactStorageService.getMechanism().save(storableArtifact)
 
