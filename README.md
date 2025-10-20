@@ -7,6 +7,7 @@
 [![Kotlin](https://img.shields.io/badge/Kotlin-2.2.0-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white)](https://kotlinlang.org/)
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 [![GitHub](https://img.shields.io/badge/GitHub-API-181717?style=for-the-badge&logo=github&logoColor=white)](https://docs.github.com/en/rest)
+[Demo](https://www.youtube.com/watch?v=ypx7gZAG-nk)
 
 [Features](#-features) • [Installation](#-installation) • [Configuration](#-configuration) • [Usage](#-usage) • [Contributing](#-contributing)
 
@@ -168,10 +169,10 @@ We welcome contributions! Here's how you can help:
 
 <div align="center">
 
-![GitHub stars](https://img.shields.io/github/stars/98ping/Valet?style=social)
-![GitHub forks](https://img.shields.io/github/forks/98ping/Valet?style=social)
-![GitHub issues](https://img.shields.io/github/issues/98ping/Valet)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/98ping/Valet)
+![GitHub stars](https://img.shields.io/github/stars/98ping/valet?style=social)
+![GitHub forks](https://img.shields.io/github/forks/98ping/valet?style=social)
+![GitHub issues](https://img.shields.io/github/issues/98ping/valet)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/98ping/valet)
 
 </div>
 
