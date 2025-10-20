@@ -35,7 +35,7 @@ class UpdatableArtifact(
         }
 
         val storableArtifact = ArtifactStorageService.getMechanism().getById(id)
-            ?: StorableArtifact.from(this, latestCommitHash.sha)
+            ?: StorableArtifact.from(this, "unknown")
 
         colorConsole {
             printLine {
