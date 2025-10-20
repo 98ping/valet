@@ -17,7 +17,7 @@ val baseUrl = "https://api.github.com"
 val artifactTemplate = UpdatableArtifact(
     "template",
     "/home/Template",
-    "max",
+    "98ping",
     "valet",
     "master",
     mutableMapOf(

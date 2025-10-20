@@ -67,7 +67,7 @@ Colorful console output for better visibility.
 
 ```bash
 # Download the latest release
-wget https://github.com/yourusername/valet/releases/latest/download/valet.jar
+wget https://github.com/98ping/valet/releases/latest/download/valet.jar
 
 # Run Valet
 java -jar valet.jar
@@ -88,7 +88,7 @@ On first run, Valet will create a `configuration.json` file. Edit it with your r
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/valet.git
+git clone https://github.com/98ping/valet.git
 cd valet
 
 # Build with Gradle
@@ -143,18 +143,7 @@ java -jar valet.jar
 
 ## 🏗️ How It Works
 
-```mermaid
-graph LR
-    A[GitHub Repository] -->|Commit| B[Valet Monitors]
-    B -->|Detects Changes| C[Fetch Diff]
-    C -->|Download Files| D[Update Local Directory]
-    D -->|Deploy| E[Your Application]
-    style A fill:#181717,color:#fff
-    style B fill:#7F52FF,color:#fff
-    style C fill:#00D9FF,color:#000
-    style D fill:#00D9FF,color:#000
-    style E fill:#10B981,color:#fff
-```
+![graph.png](graph.png)
 
 1. **Monitor**: Valet continuously checks for new commits
 2. **Analyze**: Identifies added, modified, and removed files
@@ -206,6 +195,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Made with ❤️ by Matrix Studios**
 
-[Report Bug](https://github.com/98ping/Valet/issues) • [Request Feature](https://github.com/98ping/Valet/issues)
+[Report Bug](https://github.com/98ping/valet/issues) • [Request Feature](https://github.com/98ping/valet/issues)
 
 </div>

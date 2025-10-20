@@ -30,7 +30,7 @@ object GithubInteractionHandler
                 throw Exception("Failed to fetch commit: ${response.code} - ${response.message}")
             }
 
-            return Valet.Companion.instance.gson.fromJson(response.body?.string(), GithubCommit::class.java)
+            return Valet.instance.gson.fromJson(response.body?.string(), GithubCommit::class.java)
         }
     }
 
@@ -45,7 +45,7 @@ object GithubInteractionHandler
                 throw Exception("Failed to fetch commits: ${response.code} - ${response.message}")
             }
 
-            return Valet.Companion.instance.gson.fromJson(response.body?.string(), Array<GithubCommit>::class.java).toList()
+            return Valet.instance.gson.fromJson(response.body?.string(), Array<GithubCommit>::class.java).toList()
         }
     }
 
@@ -60,7 +60,7 @@ object GithubInteractionHandler
                 throw Exception("Failed to fetch commit details: ${response.code}")
             }
 
-            val commit = Valet.Companion.instance.gson.fromJson(response.body?.string(), GithubCommit::class.java)
+            val commit = Valet.instance.gson.fromJson(response.body?.string(), GithubCommit::class.java)
             val files = commit.files ?: emptyList()
 
             val added = mutableListOf<String>()
@@ -99,7 +99,7 @@ object GithubInteractionHandler
                 throw Exception("Failed to compare commits: ${response.code}")
             }
 
-            val comparison = Valet.Companion.instance.gson.fromJson(response.body?.string(), GithubCommit::class.java)
+            val comparison = Valet.instance.gson.fromJson(response.body?.string(), GithubCommit::class.java)
             val files = comparison.files ?: emptyList()
 
             val added = mutableListOf<String>()
@@ -131,7 +131,6 @@ object GithubInteractionHandler
     {
         val files = mutableMapOf<String, ByteArray?>()
 
-        // Fetch added files
         changes.added.forEach { path ->
             try
             {
@@ -143,7 +142,6 @@ object GithubInteractionHandler
             }
         }
 
-        // Fetch modified files
         changes.modified.forEach { path ->
             try
             {
@@ -155,7 +153,6 @@ object GithubInteractionHandler
             }
         }
 
-        // Mark removed files with null
         changes.removed.forEach { path ->
             files[path] = null
             println("Marked for removal: $path")
@@ -175,7 +172,7 @@ object GithubInteractionHandler
                 throw Exception("Failed to fetch file: ${response.code} - ${response.message}")
             }
 
-            val content = Valet.Companion.instance.gson.fromJson(response.body?.string(), GithubContent::class.java)
+            val content = Valet.instance.gson.fromJson(response.body?.string(), GithubContent::class.java)
 
             return when
             {
